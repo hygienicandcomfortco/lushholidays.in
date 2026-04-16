@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lush Holidays | Hotels</title>
+  <meta name="description" content="Book handpicked hotels with Lush Holidays." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container nav">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">Lush</span>
+        <span class="brand-sub">Holidays</span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="flights.html">Flights</a></li>
+        <li><a class="active" href="hotels.html">Hotels</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn-light">Plan My Trip</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Hotel Booking</p>
+        <h1>Comfort Stays To Luxury Resorts</h1>
+        <p class="hero-text">Choose verified properties with excellent locations and trusted ratings.</p>
+      </div>
+    </section>
+
+    <section class="container page-section">
+      <div class="booking-card">
+        <h2>Request Hotel Quote</h2>
+        <p class="form-note">Share your stay preferences and we will send handpicked hotel options.</p>
+        <form class="request-form" data-request-type="Hotel">
+          <div class="grid">
+            <label>Destination
+              <input type="text" name="destination" placeholder="Dubai" required />
+            </label>
+            <label>Check-In
+              <input type="date" name="checkInDate" required />
+            </label>
+            <label>Check-Out
+              <input type="date" name="checkOutDate" required />
+            </label>
+            <label>Rooms
+              <select name="rooms">
+                <option>1 Room</option>
+                <option>2 Rooms</option>
+                <option>3 Rooms</option>
+              </select>
+            </label>
+            <label>Guests
+              <select name="guests">
+                <option>2 Guests</option>
+                <option>3 Guests</option>
+                <option>4+ Guests</option>
+              </select>
+            </label>
+            <label>Property Type
+              <select name="propertyType">
+                <option>Hotel</option>
+                <option>Resort</option>
+                <option>Villa</option>
+              </select>
+            </label>
+            <label>Full Name
+              <input type="text" name="fullName" placeholder="Your name" required />
+            </label>
+            <label>Phone Number
+              <input type="tel" name="phone" placeholder="+91" required />
+            </label>
+            <label>Email
+              <input type="email" name="email" placeholder="you@example.com" />
+            </label>
+          </div>
+          <button class="btn btn-primary full" type="submit">Send Hotel Request</button>
+          <p class="form-feedback" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer premium-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-block">
+          <a href="index.html" class="brand footer-brand">
+            <span class="brand-mark">Lush</span>
+            <span class="brand-sub">Holidays</span>
+          </a>
+          <p>Exclusive escapes, curated itineraries, and seamless travel planning from start to finish.</p>
+          <div class="footer-badges">
+            <span>24x7 Support</span>
+            <span>Luxury Stays</span>
+            <span>Custom Plans</span>
+          </div>
+        </div>
+
+        <div>
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="flights.html">Flights</a></li>
+            <li><a href="hotels.html">Hotels</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Get In Touch</h3>
+          <ul class="footer-links">
+            <li><a href="mailto:ops@lush-holidays.in">ops@lush-holidays.in</a></li>
+            <li><a href="https://www.instagram.com/lushholidays.in/" target="_blank" rel="noopener noreferrer">@lushholidays.in</a></li>
+            <li><a href="contact.html">About Us & Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Lush Holidays. All rights reserved.</p>
+        <p>Flights | Hotels | Packages | Visa Assistance</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
