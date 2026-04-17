@@ -12,16 +12,15 @@
   <header class="site-header">
     <nav class="container nav">
       <a href="index.html" class="brand">
-        <span class="brand-mark">Lush</span>
-        <span class="brand-sub">Holidays</span>
+        <img src="logo.png" alt="Lush Holidays logo" class="brand-logo" />
       </a>
       <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
       <ul class="nav-links">
-        <li><a class="active" href="index.html">Home</a></li>
-        <li><a href="flights.html">Flights</a></li>
-        <li><a href="hotels.html">Hotels</a></li>
-        <li><a href="packages.html">Packages</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a class="nav-link nav-home active" href="index.html">Home</a></li>
+        <li><a class="nav-link nav-flights" href="flights.html">Flights</a></li>
+        <li><a class="nav-link nav-hotels" href="hotels.html">Hotels</a></li>
+        <li><a class="nav-link nav-packages" href="packages.html">Packages</a></li>
+        <li><a class="nav-link nav-contact" href="contact.html">Contact</a></li>
       </ul>
       <a href="contact.html" class="btn btn-light">Plan My Trip</a>
     </nav>
@@ -31,27 +30,60 @@
     <section class="hero">
       <div class="hero-bg"></div>
       <div class="container hero-content">
-        <p class="hero-kicker">Where Luxury Meets Leisure</p>
-        <h1>Travel The World, The Lush Way</h1>
-        <p class="hero-text">
-          Premium flight, hotel and complete holiday planning for families,
-          couples and groups.
-        </p>
-        <div class="hero-actions">
-          <a href="packages.html" class="btn btn-primary">View Packages</a>
-          <a href="contact.html" class="btn btn-outline">Get Free Consultation</a>
+        <div class="hero-copy">
+          <p class="hero-kicker">Where Luxury Meets Leisure</p>
+          <h1>Travel The World, The Lush Way</h1>
+          <p class="hero-text">
+            Premium flight, hotel and complete holiday planning for families,
+            couples and groups.
+          </p>
         </div>
+
+        <aside class="plan-slider" aria-label="Featured holiday plans">
+          <div class="plan-slider-track" id="plan-slider-track">
+            <article class="plan-slide active" data-plan-slide>
+              <div class="plan-slide-visual plan-slide-thailand"></div>
+              <div class="plan-slide-content">
+                <span class="pill">Popular</span>
+                <h3>Thailand Calling</h3>
+                <p>06 Nights | Flights + 4-star stay + Island tours</p>
+                <strong>Starting at INR 63,000 / person</strong>
+              </div>
+            </article>
+
+            <article class="plan-slide" data-plan-slide>
+              <div class="plan-slide-visual plan-slide-kashmir"></div>
+              <div class="plan-slide-content">
+                <span class="pill">Best Seller</span>
+                <h3>Kashmir Retreat</h3>
+                <p>05 Nights | Houseboat stay + Transfers + Sightseeing</p>
+                <strong>Starting at INR 38,500 / person</strong>
+              </div>
+            </article>
+
+            <article class="plan-slide" data-plan-slide>
+              <div class="plan-slide-visual plan-slide-dubai"></div>
+              <div class="plan-slide-content">
+                <span class="pill">Limited Offer</span>
+                <h3>Dubai Luxe Escape</h3>
+                <p>04 Nights | Flights + Downtown hotel + Desert safari</p>
+                <strong>Starting at INR 57,000 / person</strong>
+              </div>
+            </article>
+          </div>
+
+          <div class="plan-slider-nav" id="plan-slider-nav" aria-label="Plan slider controls">
+            <button class="plan-dot active" type="button" aria-label="Show Thailand plan"></button>
+            <button class="plan-dot" type="button" aria-label="Show Kashmir plan"></button>
+            <button class="plan-dot" type="button" aria-label="Show Dubai plan"></button>
+          </div>
+        </aside>
+      </div>
+      <div class="hero-scroll-cue" aria-hidden="true">
+        <span></span>
+        <small>Featured Plans</small>
       </div>
     </section>
-
-    <section class="offers container">
-      <div class="section-head">
-        <p class="eyebrow">Featured Offers</p>
-        <h2>Curated Luxury Escapes</h2>
-      </div>
-      <div class="cards" id="package-cards"></div>
-    </section>
-
     <section class="destinations">
       <div class="container split">
         <div>
@@ -91,8 +123,7 @@
       <div class="footer-top">
         <div class="footer-brand-block">
           <a href="index.html" class="brand footer-brand">
-            <span class="brand-mark">Lush</span>
-            <span class="brand-sub">Holidays</span>
+            <img src="logo.png" alt="Lush Holidays logo" class="brand-logo" />
           </a>
           <p>Exclusive escapes, curated itineraries, and seamless travel planning from start to finish.</p>
           <div class="footer-badges">

@@ -19,6 +19,12 @@ body {
   font-family: "Segoe UI", "Trebuchet MS", Arial, sans-serif;
   color: var(--text);
   background: linear-gradient(180deg, #eef6f5 0%, #f9fcfc 60%, #ffffff 100%);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 h1,
@@ -43,8 +49,10 @@ p {
 }
 
 .container {
-  width: min(1120px, 92%);
+  width: min(1440px, 100%);
   margin: 0 auto;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 .site-header {
@@ -60,28 +68,25 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 74px;
+  min-height: 84px;
   gap: 1rem;
+  padding: 0.1rem 0;
 }
 
 .brand {
   display: inline-flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
   text-decoration: none;
   color: var(--brand-dark);
+  flex-shrink: 0;
 }
 
-.brand-mark {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.8rem;
-  line-height: 1;
-  font-weight: 700;
-}
-
-.brand-sub {
-  font-size: 0.92rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.brand-logo {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .nav-links {
@@ -90,12 +95,56 @@ p {
   gap: 1.5rem;
   padding: 0;
   margin: 0;
+  flex: 1;
+  justify-content: center;
 }
 
 .nav-links a {
   text-decoration: none;
   color: var(--text);
   font-weight: 600;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.nav-link::before {
+  width: 1.2rem;
+  height: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  opacity: 1;
+  font-size: 0.95rem;
+  line-height: 1;
+  text-align: center;
+  flex-shrink: 0;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.nav-home::before {
+  content: "\1F3E0";
+}
+
+.nav-flights::before {
+  content: "\2708";
+}
+
+.nav-hotels::before {
+  content: "\1F6CF";
+}
+
+.nav-packages::before {
+  content: "\1F4E6";
+}
+
+.nav-contact::before {
+  content: "\2709";
 }
 
 .nav-links a.active {
@@ -114,7 +163,7 @@ p {
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  padding: 0.78rem 1.25rem;
+  padding: 0.68rem 1.15rem;
   text-decoration: none;
   font-weight: 700;
   border: 1px solid transparent;
@@ -173,7 +222,15 @@ p {
 
 .hero-content {
   position: relative;
-  padding: 6rem 0 8rem;
+  padding: 5.5rem 0 6.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 480px);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hero-copy {
+  max-width: 860px;
 }
 
 .hero-kicker,
@@ -194,6 +251,140 @@ p {
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
+}
+
+.plan-slider {
+  position: relative;
+  min-height: 500px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.plan-slider-track {
+  position: relative;
+  min-height: 500px;
+  width: 100%;
+}
+
+.plan-slide {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: 1.45fr auto;
+  border-radius: 30px;
+  overflow: hidden;
+  border: 1px solid rgba(11, 107, 103, 0.14);
+  box-shadow: 0 24px 60px rgba(7, 47, 45, 0.14);
+  background: rgba(255, 255, 255, 0.75);
+  opacity: 0;
+  transform: translateX(28px) scale(0.98);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+  pointer-events: none;
+}
+
+.plan-slide.active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  pointer-events: auto;
+}
+
+.plan-slide-visual {
+  position: relative;
+}
+
+.plan-slide-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 18%, rgba(4, 34, 33, 0.45) 100%);
+}
+
+.plan-slide-thailand {
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255, 221, 163, 0.7), transparent 28%),
+    linear-gradient(180deg, rgba(11, 107, 103, 0.1), rgba(11, 107, 103, 0.1)),
+    linear-gradient(135deg, #4ecdc4 0%, #66d6c8 22%, #a9e2d9 48%, #f3d8a7 68%, #1d8f9c 100%);
+}
+
+.plan-slide-kashmir {
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.65), transparent 24%),
+    linear-gradient(180deg, rgba(17, 56, 54, 0.1), rgba(17, 56, 54, 0.15)),
+    linear-gradient(145deg, #dfeceb 0%, #8eb9b4 26%, #5d8c88 48%, #8ca68f 72%, #f3e5c4 100%);
+}
+
+.plan-slide-dubai {
+  background:
+    radial-gradient(circle at 78% 18%, rgba(255, 231, 178, 0.75), transparent 20%),
+    linear-gradient(180deg, rgba(11, 107, 103, 0.08), rgba(11, 107, 103, 0.15)),
+    linear-gradient(145deg, #f3c888 0%, #e7a35f 26%, #be7c44 50%, #0c6a66 78%, #063d3c 100%);
+}
+
+.plan-slide-content {
+  padding: 1.4rem 1.4rem 1.55rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 250, 249, 0.96));
+}
+
+.plan-slide-content h3 {
+  margin-bottom: 0.4rem;
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+}
+
+.plan-slide-content p {
+  margin-bottom: 0.7rem;
+  color: var(--muted);
+}
+
+.plan-slide-content strong {
+  display: block;
+  color: var(--brand-dark);
+  font-size: 1.02rem;
+}
+
+.plan-slider-nav {
+  position: absolute;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  display: flex;
+  gap: 0.55rem;
+  z-index: 2;
+}
+
+.plan-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: rgba(11, 107, 103, 0.24);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.plan-dot.active {
+  background: var(--brand);
+  transform: scale(1.15);
+}
+
+.hero-scroll-cue {
+  position: absolute;
+  right: 3rem;
+  bottom: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: rgba(29, 43, 42, 0.62);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.hero-scroll-cue span {
+  display: inline-block;
+  width: 44px;
+  height: 1px;
+  background: rgba(11, 107, 103, 0.45);
 }
 
 .booking-section {
@@ -451,6 +642,12 @@ cite {
   margin-bottom: 0.7rem;
 }
 
+.footer-brand .brand-logo {
+  width: 104px;
+  height: 104px;
+  filter: brightness(0) invert(1);
+}
+
 .footer-links {
   list-style: none;
   margin: 0;
@@ -497,6 +694,15 @@ cite {
 }
 
 @media (max-width: 980px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-slider,
+  .plan-slider-track {
+    min-height: 420px;
+  }
+
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -514,6 +720,15 @@ cite {
 }
 
 @media (max-width: 720px) {
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .nav {
+    min-height: 72px;
+  }
+
   .nav-toggle {
     display: inline-flex;
   }
@@ -534,8 +749,99 @@ cite {
     display: flex;
   }
 
+  .brand {
+    gap: 0.6rem;
+  }
+
+  .brand-logo {
+    width: 92px;
+    height: 92px;
+  }
+
   .hero-content {
-    padding: 4.5rem 0 7rem;
+    padding: 4.25rem 0 5rem;
+    gap: 1.5rem;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .hero-copy {
+    margin: 0 auto;
+  }
+
+  .plan-slider,
+  .plan-slider-track {
+    min-height: 360px;
+  }
+
+  .plan-slider {
+    max-width: 100%;
+  }
+
+  .plan-slider-nav {
+    display: none;
+  }
+
+  .plan-slide-content {
+    padding: 1.15rem;
+    text-align: left;
+  }
+
+  .hero-scroll-cue {
+    display: none;
+  }
+
+  .hero-text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .section-head,
+  .offers,
+  .destinations,
+  .contact,
+  .testimonials,
+  .page-hero,
+  .page-section {
+    text-align: left;
+  }
+
+  .tick-list li {
+    padding-left: 1.2rem;
+  }
+
+  .tick-list li::before {
+    position: absolute;
+    margin-right: 0;
+  }
+
+  .card,
+  .contact-card,
+  .booking-card,
+  blockquote,
+  .stat-grid article,
+  .footer-top,
+  .footer-bottom,
+  .footer-brand-block {
+    text-align: left;
+  }
+
+  .card-top,
+  .footer-badges,
+  .footer-bottom {
+    justify-content: flex-start;
+  }
+
+  .footer-brand {
+    justify-content: flex-start;
+  }
+
+  .footer-links {
+    justify-items: start;
   }
 
   .grid {

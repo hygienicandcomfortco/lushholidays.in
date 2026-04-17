@@ -30,6 +30,8 @@ const navLinks = document.querySelector(".nav-links");
 const leadForm = document.querySelector(".lead-form");
 const footerYear = document.getElementById("year");
 const requestForms = document.querySelectorAll(".request-form");
+const planSlides = document.querySelectorAll("[data-plan-slide]");
+const planDots = document.querySelectorAll(".plan-dot");
 
 if (tabs.length && panels.length) {
   tabs.forEach((tab) => {
@@ -134,4 +136,65 @@ if (requestForms.length) {
 
 if (footerYear) {
   footerYear.textContent = new Date().getFullYear();
+}
+
+if (planSlides.length && planDots.length) {
+  let activePlanIndex = 0;
+  let sliderTimer;
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const planSlider = document.querySelector(".plan-slider");
+
+  const setActivePlan = (index) => {
+    planSlides.forEach((slide, slideIndex) => {
+      slide.classList.toggle("active", slideIndex === index);
+    });
+
+    planDots.forEach((dot, dotIndex) => {
+      dot.classList.toggle("active", dotIndex === index);
+    });
+
+    activePlanIndex = index;
+  };
+
+  const startPlanSlider = () => {
+    window.clearInterval(sliderTimer);
+    sliderTimer = window.setInterval(() => {
+      const nextIndex = (activePlanIndex + 1) % planSlides.length;
+      setActivePlan(nextIndex);
+    }, 3200);
+  };
+
+  planDots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      setActivePlan(index);
+      startPlanSlider();
+    });
+  });
+
+  if (planSlider) {
+    planSlider.addEventListener("touchstart", (event) => {
+      touchStartX = event.changedTouches[0].clientX;
+    }, { passive: true });
+
+    planSlider.addEventListener("touchend", (event) => {
+      touchEndX = event.changedTouches[0].clientX;
+      const swipeDistance = touchStartX - touchEndX;
+
+      if (Math.abs(swipeDistance) < 40) {
+        return;
+      }
+
+      if (swipeDistance > 0) {
+        setActivePlan((activePlanIndex + 1) % planSlides.length);
+      } else {
+        setActivePlan((activePlanIndex - 1 + planSlides.length) % planSlides.length);
+      }
+
+      startPlanSlider();
+    }, { passive: true });
+  }
+
+  setActivePlan(0);
+  startPlanSlider();
 }
