@@ -395,6 +395,10 @@ p {
   padding-top: 2rem;
 }
 
+#request-package-quote {
+  scroll-margin-top: 5.5rem;
+}
+
 .booking-card {
   background: var(--card);
   border: 1px solid var(--border);
